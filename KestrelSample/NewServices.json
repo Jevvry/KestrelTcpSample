@@ -1,0 +1,12 @@
+{
+  "ServicesConfigurations": [
+    {
+      "ServiceName": "ServiceName1",
+      "Port": 5025
+    },
+    {
+      "ServiceName": "ServiceName2",
+      "Port": 5026
+    }
+  ]
+}

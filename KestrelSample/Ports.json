@@ -1,0 +1,15 @@
+{
+  "TcpEndpoints": {
+    "Endpoints": {
+      "ServiceName1": {
+        "Url": "http://localhost:5015"
+      },
+      "ServiceName2": {
+        "Url": "http://localhost:5016"
+      },
+      "ServiceName3": {
+        "Url": "http://localhost:5018"
+      }
+    }
+  }
+}
