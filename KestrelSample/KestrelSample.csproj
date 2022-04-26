@@ -8,9 +8,9 @@
         <PackageReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="Ports.json" Link="Ports.json" CopyToOutputDirectory="PreserveNewest"/>
+        <Content Include="Ports.json" Link="Ports.json" CopyToOutputDirectory="Always" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="NewServices.json" Link="NewServices.json" CopyToOutputDirectory="PreserveNewest"/>
+        <Content Include="NewServices.json" Link="NewServices.json" CopyToOutputDirectory="Always" />
     </ItemGroup>
 </Project>

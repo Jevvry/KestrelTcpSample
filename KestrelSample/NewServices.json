@@ -7,6 +7,10 @@
     {
       "ServiceName": "ServiceName2",
       "Port": 5026
+    },
+    {
+      "ServiceName": "ServiceName3",
+      "Port": 5027
     }
   ]
 }

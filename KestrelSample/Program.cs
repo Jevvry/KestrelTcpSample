@@ -2,13 +2,15 @@
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace KestrelSample
 {
+    // See
+    // https://github.com/davidfowl/TcpEcho
+    // https://github.com/davidfowl/TcpProxy
     public class Program
     {
         public static KestrelConfigurationLoader ConfigurationLoader;
@@ -40,7 +42,7 @@ namespace KestrelSample
 
         public static void ConfigureEndpoint(EndpointConfiguration configuration)
         {
-            configuration.ListenOptions.UseConnectionHandler<MyEchoConnectionHandler>();
+            configuration.ListenOptions.UseConnectionHandler<DataProxyConnectionHandler>();
         }
         
     }

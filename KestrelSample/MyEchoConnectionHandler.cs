@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Logging;
 
@@ -6,17 +7,16 @@ namespace KestrelSample
 {
     public class MyEchoConnectionHandler : ConnectionHandler
     {
-        private readonly ILogger<MyEchoConnectionHandler> _logger;
+        private readonly ILogger<MyEchoConnectionHandler> logger;
 
         public MyEchoConnectionHandler(ILogger<MyEchoConnectionHandler> logger)
         {
-            _logger = logger;
+            this.logger = logger;
         }
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
-            _logger.LogInformation(connection.ConnectionId + " connected");
-
+            logger.LogInformation(connection.ConnectionId + " connected");
             while (true)
             {
                 var result = await connection.Transport.Input.ReadAsync();
@@ -24,7 +24,7 @@ namespace KestrelSample
 
                 foreach (var segment in buffer)
                 {
-                    // _logger.LogInformation(Encoding.UTF8.GetString(segment.Span));
+                    logger.LogInformation(Encoding.UTF8.GetString(segment.Span));
                     await connection.Transport.Output.WriteAsync(segment);
                 }
 
@@ -36,7 +36,7 @@ namespace KestrelSample
                 connection.Transport.Input.AdvanceTo(buffer.End);
             }
 
-            _logger.LogInformation(connection.ConnectionId + " disconnected");
+            logger.LogInformation(connection.ConnectionId + " disconnected");
         }
     }
 }
